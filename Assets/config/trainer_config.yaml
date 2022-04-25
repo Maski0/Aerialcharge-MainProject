@@ -1,0 +1,63 @@
+behaviors:
+    AircraftLearning:
+        trainer_type: ppo
+        hyperparameters:
+            batch_size: 2048 #512
+            buffer_size: 20480 #4096
+            beta: 1.0e-2
+        network_settings:
+            memory_size: 256
+            hidden_units: 256 
+            normalize: false
+            num_layers: 2
+        reward_signals:
+            extrinsic:
+                strength: 1.0
+                gamma: 0.99
+        max_steps: 5.0e7
+        time_horizon: 128
+
+
+environment_parameters:
+  checkpoint_radius:
+    curriculum:
+      - name: Lesson0 # The '-' is important as this is a list
+        completion_criteria:
+          measure: reward
+          behavior: AircraftLearning
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 2.0
+        value: 50.0
+      - name: Lesson1
+        completion_criteria:
+          measure: reward
+          behavior: AircraftLearning
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 2.0
+        value: 30.0
+      - name: Lesson2
+        completion_criteria:
+          measure: reward
+          behavior: AircraftLearning
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 4.0
+        value: 20.0
+      - name: Lesson3
+        completion_criteria:
+          measure: reward
+          behavior: AircraftLearning
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 6.0
+        value: 10.0
+      - name: Lesson4
+        completion_criteria:
+          measure: reward
+          behavior: AircraftLearning
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 7.0
+        value: 0
