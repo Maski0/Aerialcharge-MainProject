@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.MLAgents;
+using Unity.MLAgents.Actuators;
 using Unity.MLAgents.Sensors;
 using UnityEngine;
 
@@ -72,19 +73,21 @@ namespace Aircraft
             if (area.trainingMode) nextStepTimeout = StepCount + stepTimeout;
         }
 
-        public override void OnActionReceived(float[] vectorAction)
+        
+
+        public override void OnActionReceived(ActionBuffers actions)
         {
             if (frozen) return;
 
             //Read vallues for pitch and yaw
-            pitchChange = vectorAction[0]; // UP 
+            pitchChange = actions.DiscreteActions[0]; // UP 
             if (pitchChange == 2) pitchChange = -1f; //Down
 
-            yawChange = vectorAction[1]; // Trun Right
+            yawChange = actions.DiscreteActions[1]; // Trun Right
             if (yawChange == 2) yawChange = -1f; // Turn left
 
             // Read value for boost and enable/Disable trail render
-            boost = vectorAction[2] == 1;
+            boost = actions.DiscreteActions[2] == 1;
             if (boost && !trail.emitting) trail.Clear();
             trail.emitting = boost;
 
@@ -125,7 +128,8 @@ namespace Aircraft
             //Total observation = 3+3+3 = 9
         }
 
-        public override void Heuristic(float[] actionsOut)
+
+        public override void Heuristic(in ActionBuffers actionsOut)
         {
             Debug.LogError("Heuristic was called on " + gameObject.name +
                 " Only AircraftPlayer has heuristic");

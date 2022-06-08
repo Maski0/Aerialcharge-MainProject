@@ -1119,7 +1119,7 @@ MonoBehaviour:
     width: 0.2
   m_Looped: 1
   m_Waypoints:
-  - position: {x: -214.4693, y: -87.06354, z: -92.37675}
+  - position: {x: -210.34843, y: -103.55933, z: -69.704636}
     roll: 0
   - position: {x: -298.5286, y: -83.967865, z: -132.22247}
     roll: 0
@@ -3952,7 +3952,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8973724286040067603
 Transform:
   m_ObjectHideFlags: 0
@@ -3961,8 +3961,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8629673269681099945}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -176.5, y: 0.039376, z: -85.8}
-  m_LocalScale: {x: 1.287324, y: 1.287324, z: 1.287324}
+  m_LocalPosition: {x: -176.39, y: 0.82802, z: -120.7}
+  m_LocalScale: {x: 2.4088404, y: 2.4088404, z: 2.4088404}
   m_Children: []
   m_Father: {fileID: 1412957522601422286}
   m_RootOrder: 6
