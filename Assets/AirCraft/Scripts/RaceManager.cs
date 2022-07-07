@@ -118,7 +118,7 @@ namespace Aircraft
             gameOverUI = FindObjectOfType<GameOverUIController>();
             VirtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
             aircraftArea = FindObjectOfType<AircraftArea>();
-            ActiverCamera = FindObjectOfType<Camera>();
+            ActiverCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         }
 
         private void Start()
