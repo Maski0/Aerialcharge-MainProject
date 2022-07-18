@@ -9,6 +9,7 @@ public class MiniMap : MonoBehaviour
     public CinemachineSmoothPath racePath;
 
     public GameObject localPlayer;
+    public GameObject ball;
     public GameObject minimapCam;
 
     void Start()
@@ -29,6 +30,9 @@ public class MiniMap : MonoBehaviour
     {
         minimapCam.transform.position = (new Vector3(localPlayer.transform.position.x,
             minimapCam.transform.position.y, localPlayer.transform.position.z));
-        
+        ball.transform.position = (new Vector3(localPlayer.transform.position.x,
+            ball.transform.position.y, localPlayer.transform.position.z));
+
+
     }
 }

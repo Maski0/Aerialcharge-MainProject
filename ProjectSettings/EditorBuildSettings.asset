@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/AirCraft/Scenes/Desert.unity
     guid: 48ee2174512b52545940f3334c8bf7a3
+  - enabled: 1
+    path: Assets/AirCraft/Scenes/Snow.unity
+    guid: 407c05adbbf219446a37feae276c61b6
   m_configObjects: {}
